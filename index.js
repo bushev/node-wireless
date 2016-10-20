@@ -155,6 +155,11 @@ Wireless.prototype.dhcp = function (callback) {
             return;
         }
 
+        if (lines[0] === 'sending commands to master dhcpcd process') {
+            callback && callback(null);
+            return;
+        }
+
         console.log('stdout:');
         console.log(stdout);
         console.log('---');
