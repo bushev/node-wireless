@@ -147,6 +147,11 @@ Wireless.prototype.dhcp = function (callback) {
             if (temp) {
                 ip_address = temp[1];
             }
+
+            temp = line.match(/rebinding lease of (\b(?:\d{1,3}\.){3}\d{1,3}\b)/);
+            if (temp) {
+                ip_address = temp[1];
+            }
         });
 
         if (ip_address) {
