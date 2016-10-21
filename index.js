@@ -113,6 +113,9 @@ Wireless.prototype.stop = function (callback) {
     clearInterval(this.scanTimer);
     clearInterval(this.connectTimer);
 
+    // clear known networks list
+    this.networks = {};
+
     this.emit('stop');
 
     callback && callback();
@@ -164,14 +167,6 @@ Wireless.prototype.dhcp = function (callback) {
             callback && callback(null);
             return;
         }
-
-        console.log('stdout:');
-        console.log(stdout);
-        console.log('---');
-
-        console.log('stderr:');
-        console.log(stderr);
-        console.log('---');
 
         self.emit('error', "Couldn't get an IP Address from DHCP");
         callback && callback(new Error("Couldn't get an IP Address from DHCP"));
