@@ -444,7 +444,7 @@ Wireless.prototype._executeConnectWEP = function (essid, password, callback) {
 
     exec(command, function (err, stdout, stderr) {
         if (err || stderr) {
-            self.emit('error', "Shit is broken TODO");
+            self.emit('error', `Command "${command}" failed`);
             console.log(err);
             console.log(stderr);
 
@@ -469,7 +469,7 @@ Wireless.prototype._executeConnectWPA = function (essid, password, callback) {
 
     exec(command, function (err, stdout, stderr) {
         if (err || stderr) {
-            self.emit('error', "Shit is broken TODO");
+            self.emit('error', `Command "${command}" failed`);
             console.log(err);
             console.log(stderr);
 
